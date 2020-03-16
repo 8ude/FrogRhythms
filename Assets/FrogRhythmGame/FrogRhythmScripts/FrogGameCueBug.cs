@@ -43,7 +43,7 @@ public class FrogGameCueBug : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = bugCueSound;
         audioSource.PlayScheduled(nextLoopTime);
-        audioSource.loop = true;
+        //audioSource.loop = true;
         
     }
 

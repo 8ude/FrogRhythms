@@ -1,0 +1,172 @@
+{
+  "header": {
+    "PPQ": 96,
+    "timeSignature": [
+      4,
+      4
+    ],
+    "bpm": 120,
+    "name": ""
+  },
+  "tempo": [],
+  "timeSignature": [
+    {
+      "absoluteTime": 0,
+      "seconds": 0,
+      "numerator": 4,
+      "denominator": 2,
+      "click": 36,
+      "notesQ": 8
+    },
+    {
+      "absoluteTime": 0,
+      "seconds": 0,
+      "numerator": 4,
+      "denominator": 2,
+      "click": 36,
+      "notesQ": 8
+    }
+  ],
+  "startTime": 8,
+  "duration": 54,
+  "tracks": [
+    {
+      "startTime": 8,
+      "duration": 54,
+      "length": 18,
+      "notes": [
+        {
+          "name": "C2",
+          "midi": 36,
+          "time": 8,
+          "velocity": 0.7952755905511811,
+          "duration": 2
+        },
+        {
+          "name": "C2",
+          "midi": 36,
+          "time": 12,
+          "velocity": 0.7952755905511811,
+          "duration": 2
+        },
+        {
+          "name": "C#2",
+          "midi": 37,
+          "time": 16,
+          "velocity": 0.7952755905511811,
+          "duration": 2
+        },
+        {
+          "name": "D2",
+          "midi": 38,
+          "time": 20,
+          "velocity": 0.7952755905511811,
+          "duration": 2
+        },
+        {
+          "name": "C2",
+          "midi": 36,
+          "time": 24,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "C#2",
+          "midi": 37,
+          "time": 26,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "C2",
+          "midi": 36,
+          "time": 28,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "D2",
+          "midi": 38,
+          "time": 30,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "D2",
+          "midi": 38,
+          "time": 33,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "C2",
+          "midi": 36,
+          "time": 34,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "C#2",
+          "midi": 37,
+          "time": 36,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "C2",
+          "midi": 36,
+          "time": 38,
+          "velocity": 0.7952755905511811,
+          "duration": 0.5
+        },
+        {
+          "name": "D2",
+          "midi": 38,
+          "time": 39,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "C2",
+          "midi": 36,
+          "time": 41,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "D2",
+          "midi": 38,
+          "time": 44,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "C#2",
+          "midi": 37,
+          "time": 46,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "C2",
+          "midi": 36,
+          "time": 48,
+          "velocity": 0.7952755905511811,
+          "duration": 1
+        },
+        {
+          "name": "C2",
+          "midi": 36,
+          "time": 52,
+          "velocity": 0.7952755905511811,
+          "duration": 2
+        }
+      ],
+      "controlChanges": {},
+      "id": 0,
+      "name": "",
+      "channelNumber": 0,
+      "isPercussion": false
+    }
+  ]
+}

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: ParserKey
   m_EditorClassIdentifier: 
   beatmapPairs:
-  - midiNote: C1
+  - midiNote: C2
     unityInput: InputFly
-    beatCueOffset: 2
-  - midiNote: C#1
+    beatCueOffset: 4
+  - midiNote: C#2
     unityInput: InputCricket
     beatCueOffset: 3
-  - midiNote: D1
+  - midiNote: D2
     unityInput: InputCicada
     beatCueOffset: 4
