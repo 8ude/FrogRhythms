@@ -1,5 +1,4 @@
 # FrogRhythms
-Frog Rhythm Game Prototype
-
 
 :frog:
+:musical_score:
