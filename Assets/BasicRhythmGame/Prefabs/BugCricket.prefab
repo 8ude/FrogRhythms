@@ -97,7 +97,7 @@ MonoBehaviour:
     beatCueOffset: 0
     cueTime: 0
   crossPositionOffset: 0
-  bugCueSound: {fileID: 8300000, guid: f147d7d0a5326484bbce398f363794ed, type: 3}
+  bugCueSound: {fileID: 8300000, guid: 7382f987bb5d4c043a68cbc05510f812, type: 3}
   nextLoopTime: 0
 --- !u!82 &6784768177500238258
 AudioSource:

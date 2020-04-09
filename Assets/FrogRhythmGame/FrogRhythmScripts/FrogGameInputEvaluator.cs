@@ -22,6 +22,13 @@ public class FrogGameInputEvaluator : MonoBehaviour
     //ideally we'd manage score on a seperate script
     public int gameScore;
 
+    public AudioSource[] pooledAudioSources;
+
+    public AudioClip[] missedClips, hitClips;
+
+    //prevent button mashing
+    public float earlyMissCooldown = 0.1f;
+
 
     void Awake()
     {
@@ -64,11 +71,6 @@ public class FrogGameInputEvaluator : MonoBehaviour
         }
 
 
-        //old input system - check for keyboard inputs and log them
-
-
-
-
         //compare inputs to current beatMap windows
 
         //first find any non-destroyed cues
@@ -76,33 +78,43 @@ public class FrogGameInputEvaluator : MonoBehaviour
         FrogGameCueBug[] allBugs = FindObjectsOfType<FrogGameCueBug>();
 
         activeBugs.AddRange(allBugs);
-        for (int i = 0; i < activeBugs.Count; i++)
+
+        //go through each of our inputs from this frame, and check them against this gem
+        for (int j = 0; j < CachedInputs.Count; j++)
         {
-            //we're not going to do anything with early inputs
-            if (activeBugs[i].bugCueState != FrogGameCueBug.CueState.Early)
+
+            //want to register an early input if 
+            //there's no other (non-early) active bug in this lane
+            
+            bool earlyInput = true;
+
+            for(int i = 0; i < activeBugs.Count; i++)
             {
-                //if player hasn't input anything, don't do anything
-                if (CachedInputs.Count == 0)
-                    break;
-                //go through each of our inputs from this frame, and check them against this gem
-                for (int j = 0; j < CachedInputs.Count; j++)
+                if (activeBugs[i].bugCueState != FrogGameCueBug.CueState.Early)
                 {
                     if (CachedInputs[j].inputKey == activeBugs[i].bmEvent.inputKey
-                        || CachedInputs[j].inputString == activeBugs[i].bmEvent.unityInput)
+                    || CachedInputs[j].inputString == activeBugs[i].bmEvent.unityInput)
                     {
                         ScoreGem(activeBugs[i]);
-
+                        earlyInput = false;
                     }
                 }
             }
+
+            if(earlyInput)
+            {
+                PlayFeedbackSound(missedClips[Random.Range(0, missedClips.Length)]);
+            }
+            
         }
+
+
+
+        //check 
 
         //clear Lists
         activeBugs.Clear();
         CachedInputs.Clear();
-
-
-
 
     }
 
@@ -113,23 +125,54 @@ public class FrogGameInputEvaluator : MonoBehaviour
             case FrogGameCueBug.CueState.OK:
                 gameScore += 1;
                 Debug.Log("OK!");
+                PlayFeedbackSound(hitClips[Random.Range(0, hitClips.Length)]);
                 Destroy(bug.gameObject);
                 break;
             case FrogGameCueBug.CueState.Good:
                 gameScore += 2;
                 Debug.Log("Good!");
+                PlayFeedbackSound(hitClips[Random.Range(0, hitClips.Length)]);
                 Destroy(bug.gameObject);
                 break;
             case FrogGameCueBug.CueState.Perfect:
                 gameScore += 3;
                 Debug.Log("Perfect!");
+                PlayFeedbackSound(hitClips[Random.Range(0, hitClips.Length)]);
                 Destroy(bug.gameObject);
                 break;
             case FrogGameCueBug.CueState.Late:
                 Debug.Log("Missed!");
+                PlayFeedbackSound(missedClips[Random.Range(0, missedClips.Length)]);
                 break;
         }
 
+
+    }
+
+    public void PlayFeedbackSound(AudioClip clip)
+    {
+        AudioSource sourceToUse = null;
+
+        foreach(AudioSource source in pooledAudioSources)
+        {
+            if (!source.isPlaying)
+            {
+                sourceToUse = source;
+                break;
+            }
+        }
+
+        if (sourceToUse == null)
+        {
+            return;
+        }
+        else
+        {
+            sourceToUse.clip = clip;
+            sourceToUse.Play();
+        }
+
+        
 
     }
 
